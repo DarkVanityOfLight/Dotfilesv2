@@ -124,3 +124,28 @@ As Bar I use Polybar.
 ## Config
 Copy `.config/polybar` to `~/.config/polybar/`
 and make sure you have the right audio controll set.
+
+## Spotify/Spicetify
+Normal Spotify looks shit so we use Spicetify to make it look nicer and get some
+other boons, like Ad free content and a Lyric Server
+
+## Install
+`yay -S spotify spicetify-cli`
+
+## Config
+We are using the Dribbblish theme with custom colors,
+my Lyric Server extension and an ad block extension.
+You can go ahead and install those manually, but I m just going
+to copy and paster with the risk of having a few bugs that you need to iron out.
+
+Copy `.config/spicetify/` to `~/.config/spicetify/`
+
+and set your own preference path in 
+`~/.config/spicetify/config-xpui.ini`
+
+at the line
+`prefs_path = /home/darkvanity/.config/spotify/prefs`
+
+to your right path aka
+
+`prefs_path = /home/<username>/.config/spotify/prefs`
