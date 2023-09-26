@@ -119,42 +119,83 @@ if [ "$1" == "--description" ]; then
     0)
       DESCRIPTION="Clear sky"
       ;;
-    1|2|3)
+    1)
       DESCRIPTION="Mainly clear, partly cloudy, and overcast"
       ;;
+    2)
+      DESCRIPTION="Partly cloudy"
+      ;;
+    3)
+      DESCRIPTION="Overcast"
+      ;;
     45|48)
-      DESCRIPTION="Fog and depositing rime fog"
+      DESCRIPTION="Fog"
       ;;
-    51|53|55)
-      DESCRIPTION="Drizzle: Light, moderate, and dense intensity"
+    51)
+      DESCRIPTION="Light Drizzle"
       ;;
-    56|57)
-      DESCRIPTION="Freezing Drizzle: Light and dense intensity"
+    53)
+      DESCRIPTION="Moderate drizzle"
+      ;;
+    55)
+      DESCRIPTION="Dense drizzle"
+      ;;
+    56)
+      DESCRIPTION="Ligh freezing drizzle"
+      ;;
+    57)
+      DESCRIPTION="Dense freezing drizzle"
       ;;
     61|63|65)
-      DESCRIPTION="Rain: Slight, moderate and heavy intensity"
+      DESCRIPTION="Slight rain"
       ;;
-    66|67)
-      DESCRIPTION="Freezing Rain: Light and heavy intensity"
+    63)
+      DESCRIPTION="Moderate rain"
       ;;
-    71|73|75)
-      DESCRIPTION="Snow fall: Slight, moderate, and heavy intensity"
+    65)
+      DESCRIPTION="Heavy rain"
+      ;;
+    66)
+      DESCRIPTION="Light freezing rain"
+      ;;
+    67)
+      DESCRIPTION="Heavy freezing rain"
+      ;;
+    71)
+      DESCRIPTION="Slight snow fall"
+      ;;
+    73)
+      DESCRIPTION="Moderate snow fall"
+      ;;
+    75)
+      DESCRIPTION="Heavy snow fall"
       ;;
     77)
       DESCRIPTION="Snow grains"
       ;;
-    80|81|82)
-      DESCRIPTION="Rain showers: Slight, moderate, and violent"
+    80)
+      DESCRIPTION="Slight rain showers"
       ;;
-    85|86)
-      DESCRIPTION="Snow showers slight and heavy"
+    81)
+      DESCRIPTION="Moderate rain showers"
+      ;;
+    82)
+      DESCRIPTION="Violent rain showers"
+      ;;
+    85)
+      DESCRIPTION="Slight snow showers"
+      ;;
+    86)
+      DESCRIPTION="Heavy snow showers"
       ;;
     95)
       DESCRIPTION="Thunderstorm: Slight"
       ;;
     96|99)
-      DESCRIPTION="Thunderstorm with slight and heavy hail"
+      DESCRIPTION="Thunderstorm with slight hail"
       ;;
+    99)
+      DESCRIPTION="Thunderstorm with heavy hail"
     *)
       DESCRIPTION="Unknown weather code"
       ;;
