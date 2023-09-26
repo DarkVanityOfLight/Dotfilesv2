@@ -149,3 +149,13 @@ at the line
 to your right path aka
 
 `prefs_path = /home/<username>/.config/spotify/prefs`
+
+## Dunst
+We display Desktop notifications using Dunst.
+
+### Install
+
+`sudo pacman -S dunst`
+
+### Config
+Copy `/.config/dunst` to `~/.config/dunst/`
