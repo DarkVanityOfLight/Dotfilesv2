@@ -120,7 +120,7 @@ if [ "$1" == "--description" ]; then
       DESCRIPTION="Clear sky"
       ;;
     1)
-      DESCRIPTION="Mainly clear, partly cloudy, and overcast"
+      DESCRIPTION="Mainly clear"
       ;;
     2)
       DESCRIPTION="Partly cloudy"
@@ -196,6 +196,7 @@ if [ "$1" == "--description" ]; then
       ;;
     99)
       DESCRIPTION="Thunderstorm with heavy hail"
+      ;;
     *)
       DESCRIPTION="Unknown weather code"
       ;;
