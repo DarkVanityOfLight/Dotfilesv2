@@ -55,3 +55,12 @@ I only use the Fira Code Nerd font but if you want others go ahead.
 ### Install
 You can either manually install or use the AUR
 `yay -S ttf-firacode-nerd`
+
+## Rofi
+As drun replacement we use Rofi with the default Catpuccin-Mocha config
+
+### Install
+`sudo pacman -S rofi`
+
+### Config
+Copy `.config/rofi/*` to `.config/rofi`
