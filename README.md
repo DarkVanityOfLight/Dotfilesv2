@@ -11,6 +11,17 @@ I3 Gaps is easily installed using pacman:
 The config is as easy as copying 
 `.config/i3/config` to `~/.config/i3/config`
 
+## Picom
+We use Picom as the compositor because it is lightwheight and we don't really need 
+alot of features from our compositor.
+
+### Install
+`sudo pacman -S picom`
+
+### Config
+We don't configure alot but we need some config done so,
+copy `.config/picom/picom.conf` to `~/.config/picom/picom.conf`.
+
 ## Terminal
 The Terminal we use is kitty.
 
