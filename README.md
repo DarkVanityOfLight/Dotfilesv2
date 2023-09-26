@@ -46,6 +46,15 @@ Copy the config from `.config/fish/*` to `~/.config/fish`
 and set the theme using
 `fish_config theme save "Catppuccin Mocha"`
 
+## Starship
+We need a nicer prompt so we install Starship.
+
+### Install
+`sudo pacman -S starship`
+
+## Config
+Copy `.config/starship.toml` to `~/.config/starship.toml`
+
 ## Editor
 I am using Neo Vim with AstroNvim as Editor.
 
