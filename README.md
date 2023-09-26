@@ -211,3 +211,5 @@ or if you are brave:
 `git clone https://github.com/DarkVanityOfLight/astrovim-config.git ~/.config/nvim/lua/user`
 `cd eww && cargo build --release --no-default-features --features x11`
 
+or try the install script
+`bash setup.sh`
