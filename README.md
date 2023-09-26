@@ -179,3 +179,35 @@ The Vivaldi Webrowser can be customized with a Catppuccin Theme from the store
 ### Nitrogen
 To set my wallpapers I use Nitrogen
 
+
+## Full Install
+
+Here is the copy paste version of the whole install with as few commands as possible:
+
+`mkdir -p ~/.config/i3 ~/.config/picom ~/.config/kitty ~/.config/fish ~/.config/rofi ~/.config/eww 
+~/.config/lockscreen ~/.config/polybar ~/.config/spicetify ~/.config/dunst`
+
+`sudo pacman -S i3-gaps picom kitty fish starship neovim rustup rofi polybar dunst`
+`yay -S spotify spicetify-cli ttf-firacode-nerd i3lock-color`
+
+
+`cp .config/i3/config ~/.config/i3/`
+`cp .config/picom/picom.conf ~/.config/picom/`
+`cp .config/kitty/kitty.conf ~/.config/kitty/`
+`cp -r .config/fish/* ~/.config/fish`
+`cp .config/starship.toml ~/.config/`
+`cp -r .config/rofi/* ~/.config/rofi/`
+`cp -r .config/eww/* ~/.config/eww/`
+`cp -r .config/polybar/* ~/.config/polybar/`
+`cp -r .config/spicetify/* ~/.config/spicetify/`
+`cp -r .config/dunst/* ~/.config/dunst/`
+or if you are brave:
+`cp -r .config/* ~/.config/`
+
+
+`kitty +kitten themes --reload-in=all Catpuccin-Mocha`
+`fish_config theme save "Catppuccin Mocha"`
+`git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim`
+`git clone https://github.com/DarkVanityOfLight/astrovim-config.git ~/.config/nvim/lua/user`
+`cd eww && cargo build --release --no-default-features --features x11`
+
