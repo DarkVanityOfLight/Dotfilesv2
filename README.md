@@ -159,3 +159,19 @@ We display Desktop notifications using Dunst.
 
 ### Config
 Copy `/.config/dunst` to `~/.config/dunst/`
+
+## Other Packages
+
+### Ranger
+As file explorer I use ranger with the Kitty image preview
+
+### Obsidian
+This is my Note taking app I use.
+You can install the Catppuccin theme from the store there
+
+### Vivaldi
+The Vivaldi Webrowser can be customized with a Catppuccin Theme from the store
+
+### Nitrogen
+To set my wallpapers I use Nitrogen
+
