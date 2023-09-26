@@ -95,3 +95,13 @@ our lockscreen background.
 We are using a wallpaper as background, so move your image to:
 `~/.config/lockscreen/lockscreen_image.png`
 make sure it has the right dimensions if you are on a dual monitor setup.
+
+## Polybar
+As Bar I use Polybar.
+
+## Install
+`sudo pacman -S polybar`
+
+## Config
+Copy `.config/polybar` to `~/.config/polybar/`
+and make sure you have the right audio controll set.
