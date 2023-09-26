@@ -64,3 +64,22 @@ As drun replacement we use Rofi with the default Catpuccin-Mocha config
 
 ### Config
 Copy `.config/rofi/*` to `.config/rofi`
+
+## Eww
+We have some widgets and for these I use eww. The install
+is a bit wacky, but it is manageable
+
+### Install
+
+First we need the nightly toolchain of rust for that we best use rustup
+`sudo pacman -S rustup`
+
+After that we can build Eww using
+
+`git clone https://github.com/elkowar/eww`
+`cd eww`
+`cargo build --release --no-default-features --features x11`
+
+### Config
+Once again you can find and copy the config from
+`.config/eww/` to `~/.config/eww`

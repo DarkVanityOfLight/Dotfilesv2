@@ -1,0 +1,398 @@
+* {
+  all: unset;
+  transition: 10ms ease-out;
+  font-family: "Fira Code Nerd"
+}
+
+.top-row {
+  min-height: 205px;
+  margin-bottom: 28px;
+}
+
+.mid-row {
+  margin-bottom: 28px;
+  min-height: 330px; 
+}
+
+.bottom-row {
+}
+
+.item {
+  background-color: $bg;
+  border-radius: 15px;
+}
+
+.whoami-box{
+  padding: 3px 10px 0px 10px;
+}
+
+// Top row widgets
+.whoami{
+  margin-right: 28px;
+  min-width: 180px;
+}
+
+.clock{
+  margin-right: 28px;
+  min-width: 444px
+}
+
+.nowplaying{
+  min-width: 470px
+}
+
+// Clock
+.clock-box{
+  padding: 10px;
+}
+
+// Date time
+.word-date{
+  font-size: 25px;
+  color: $fg-alt;
+}
+
+
+.time{
+  font-size: 50px;
+  font-weight: bold;
+  color: $fg;
+}
+
+.date{
+  font-size: 20px;
+  color: $yellow;
+}
+
+// Who am i
+.profile-image{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  background-image: url("Main/images/profile.png")
+}
+
+.profile-image-box{
+}
+
+.text-box{
+}
+
+.hello{
+  font-size: 30;
+  font-weight: bold;
+  color: $fg;
+}
+
+.username{
+  font-size: 20;
+  color: $purple;
+}
+
+.hostname{
+  color: $yellow;
+}
+
+// Player
+.music-box{
+  padding: 20px;
+}
+
+.cover-box{
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 1);
+  border-radius: 15px;
+  min-width: 90px;
+  min-height: 90px;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.cover{
+  border-radius: 15px;
+}
+
+.metadata-controll-box{
+}
+
+
+.song{
+  font-size: 20px;
+  font-weight: bold;
+  color: $fg;
+}
+
+.artist{
+  font-size: 15px;
+  color: $cyan;
+  margin-bottom: 30px
+}
+
+.music-button{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.music-button-box {
+  background-color: $gray;
+  border-radius: 50%;
+  min-width: 45px;
+  min-height: 45px;
+}
+.music-button-box:nth-child(1){
+  margin-right: 10px;
+}
+
+.music-button-box:nth-child(2){
+  margin-right: 10px;
+}
+
+.controlls-box{
+}
+
+.sound-slider-box{
+}
+
+.sound-slider{
+}
+
+.sound-slider trough {
+  padding: 0.5em;
+  background-color: $gray;
+  border-radius: 15px;
+}
+
+.sound-slider highlight {
+  padding: 0.5em;
+  background-color: $green;
+  border-radius: 15px;
+}
+
+// Mid widgets
+.quote{
+  margin-right: 28px;
+  min-width: 257px
+}
+
+.anime{
+  margin-right: 28px;
+  min-width: 579px;
+}
+
+.weather{
+  min-width: 258px;
+}
+
+.quote-box{
+  padding: 15px;
+}
+
+.quote-sign{
+  font-size: 50px;
+  font-weight: bold;
+  color: $blue; 
+}
+
+.quote-text-box{
+}
+
+.quote-text{
+  font-style: italic;
+  color: $fg
+}
+
+.quote-author{
+  font-size: 15px;
+  font-weight: bold;
+  color: $yellow
+}
+
+.anime-picture{
+  border-radius: 15px;
+  background-size: cover;
+  background-image: url("Main/images/waifu");
+  background-position: 0px -40px;
+  background-repeat: no-repeat;
+}
+
+.weather-box{
+  padding: 20px
+}
+
+.weather-icon{
+  color: $blue;
+  font-size: 80px;
+}
+
+.temperature{
+  color: $green;
+  font-size: 40px;
+}
+
+.weather-description{
+  color: $orange;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+// Bottom widgets
+.tip{
+  margin-right: 28px;
+  min-width: 430px;
+}
+
+.system{
+  margin-right: 28px;
+  min-width: 175px;
+}
+
+.uptime{
+  margin-right: 28px;
+  min-width: 175px;
+}
+
+.container{
+  min-width: 286px;
+}
+
+.uptime-box{
+  padding: 20px;
+}
+
+.uptime-icon{
+  font-size: 90px;
+  color: $red
+}
+
+.uptime-text{
+  font-size: 30px;
+  color: $green;
+}
+
+
+.system-box{
+  padding: 20px;
+}
+
+.iconcpu,
+.iconmem,
+.icongpu,
+.iconstor {
+        font-size: 32px;
+        font-weight: normal;
+}
+
+.iconcpu {
+        color: $red;
+}
+
+.text-cpu {
+        color: $red;
+        font-weight: bold;
+}
+
+.iconmem {
+        color: $blue;
+}
+
+.text-ram {
+        color: $blue;
+        font-weight: bold;
+}
+
+.icongpu {
+        color: $yellow;
+}
+
+.text-gpu {
+        color: $yellow;
+        font-weight: bold;
+}
+
+.iconstor {
+        color: $green;
+}
+
+.text-disk {
+        color: $green;
+        font-weight: bold;
+}
+
+.system-bar scale trough {
+        all: unset;
+        background-color: $gray;
+        border-radius: 16px;
+        min-height: 5px;
+        min-width: 80px;
+}
+
+.system-bar scale trough highlight {
+        all: unset;
+        border-radius: 16px;
+}
+
+.cpu_bar scale trough highlight {
+        background-color: $red;
+}
+
+.mem_bar scale trough highlight {
+        background-color: $blue
+}
+
+.gpu_bar scale trough highlight {
+        background-color: $yellow;
+}
+
+.stor_bar scale trough highlight {
+        background-color: $green;
+}
+
+.power-kys{
+}
+
+.kys-container{
+  margin-bottom: 28px;
+  min-height: 55px;
+}
+
+.kys-text{
+  color: $red;
+  font-size: 25px;
+}
+
+.power{
+  font-size: 50px;
+}
+
+.shutdown {
+        color: $red;
+}
+
+.reboot {
+        color: $green;
+}
+
+.lock {
+        color: $purple;
+}
+
+.suspend {
+        color: $fg;
+}
+
+.tip-container{
+  padding: 20px;
+}
+
+.tip-header{
+  color: $cyan;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.tip-text{
+  font-size: 25px;
+  color: $fg;
+}

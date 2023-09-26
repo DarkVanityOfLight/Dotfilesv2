@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [[ $1 == "--host" ]]; then
+		echo $(hostnamectl | awk 'FNR==1 {print $3}')
+fi	
+
+if [[ $1 == "--spacing" ]]; then
+    username=$(whoami)
+    length=$((${#username}))  # Calculate the length of the username
+    spaced_username=$(printf "%${length}s" "")  # Create a string of spaces with the same length
+    echo "$spaced_username"
+fi
+
+
+if [[ $1 == "--kernel" ]]; then
+    echo "$(uname -r)"
+fi
+
+if [[ $1 == "--os" ]]; then
+    echo "$(cat /etc/os-release | awk 'NR==1'| awk -F '"' '{print $2}')"
+fi

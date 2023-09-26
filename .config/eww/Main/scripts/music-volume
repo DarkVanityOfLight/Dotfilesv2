@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Set the source audio player here.
+# Players supporting the MPRIS spec are supported.
+# Examples: spotify, vlc, chrome, mpv and others.
+# Use `playerctld` to always detect the latest player.
+# See more here: https://github.com/altdesktop/playerctl/#selecting-players-to-control
+PLAYER="spotify"
+
+if [ "$1" == "--value" ]; then
+    VOLUME=$(playerctl --player=$PLAYER volume | awk '{print int($1 * 100)}')
+    echo $VOLUME
+fi
+
+if [ "$1" == "--set" ] && [ "$2" -ge 0 ] && [ "$2" -le 100 ]; then
+    VOLUME=$(awk "BEGIN {print $2 / 100}")
+    playerctl --player=$PLAYER volume $VOLUME
+fi
+
+if [ "$1" == "--icon" ]; then
+    vol=$(playerctl --player=$player volume | awk '{print int($1 * 100)}')
+    if [[ ${vol} -ge 80 ]]; then
+        echo "󰕾"
+    elif [[ ${vol} -ge 40 ]]; then
+        echo "󰖀"
+    elif [[ ${vol} -ge 10 ]]; then
+        echo "󰕿"
+    else
+        echo "󰝟"
+    fi
+fi

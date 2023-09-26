@@ -1,0 +1,17 @@
+#!/bin/bash
+
+tmp_dir="$HOME/.config/eww/Main/images"
+tmp_cover_path=$tmp_dir/cover.png
+tmp_temp_path=$tmp_dir/temp.png
+
+if [ ! -d $tmp_dir ]; then
+	mkdir -p $tmp_dir
+fi
+
+if [ $(playerctl -p spotify metadata mpris:artUrl) ]; then
+	artlink="$(playerctl -p spotify metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.co/g')"
+	curl -s "$artlink" --output $tmp_temp_path
+	echo $tmp_temp_path
+else
+	echo Main/images/default-music.svg
+fi

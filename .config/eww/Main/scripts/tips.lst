@@ -1,0 +1,82 @@
+To open a terminal, press Mod (Super key) + Enter.
+To close the focused window, press Mod + Shift + q.
+Open the program launcher (dmenu) with Mod + d.
+Change focus between windows: Left - Mod + h or left arrow key, Down - Mod + j or down arrow key, Up - Mod + k or up arrow key, Right - Mod + l or right arrow key.
+Move the focused window: Left - Mod + Shift + h, Down - Mod + Shift + j, Up - Mod + Shift + k, Right - Mod + Shift + l.
+Toggle between tiling and floating mode for the focused window with Mod + Shift + Space.
+Toggle focus between tiling and floating windows with Mod + Space.
+Toggle fullscreen mode for the focused window with Mod + f.
+Change container layout to stacking with Mod + s.
+Change container layout to tabbed with Mod + w.
+Toggle between split and tabbed layout with Mod + e.
+Switch to a specific workspace: Workspace 1 - Mod + 1, Workspace 2 - Mod + 2, ...
+Move the focused container to a specific workspace: Move to Workspace 1 - Mod + Shift + 1, Move to Workspace 2 - Mod + Shift + 2, ...
+Move a container to the right monitor with Mod + Shift + >.
+Move a container to the left monitor with Mod + Shift + <.
+Reload the i3 configuration file with Mod + Shift + c.
+Restart i3 while preserving the layout/session with Mod + Shift + r.
+Execute a custom power menu script with Mod + Shift + e.
+Enter resize mode with Mod + r, then use arrow keys or j, k, l,  to resize the focused window. Exit resize mode with Return, Escape, or Mod + r.
+To increase volume - Use the key for raising volume
+Lower the volume using the key for lowering volume.
+Toggle your mute using the mute button.
+Take a screenshot with scrot using Mod + p.
+Kill the focused window with Mod + Shift + c.
+
+In the terminal, you can open a new terminal window with super+n.
+To paste from the clipboard in the terminal, use super+v.
+For terminal operations, paste from the selection with ctrl+shift+s.
+Copy text to the clipboard in the terminal with super+c.
+Alternatively, in the terminal, paste from the selection using shift+insert.
+For terminal scrolling, scroll up a line with ctrl+shift+up or ctrl+shift+k.
+In the terminal, scroll down a line with ctrl+shift+down or ctrl+shift+j.
+For terminal scrolling, scroll up a page with ctrl+shift+page_up.
+In the terminal, scroll down a page with ctrl+shift+page_down.
+Quickly scroll to the top in the terminal with ctrl+shift+home.
+In the terminal, quickly scroll to the end with ctrl+shift+end.
+In the terminal, view scrollback history with ctrl+shift+h.
+To create a new terminal window, use super+n in the terminal.
+In the terminal, close the current terminal window with super+w.
+Create a new terminal window with the current working directory using ctrl+shift+enter.
+Navigate to the next terminal window with ctrl+shift+].
+Navigate to the previous terminal window with ctrl+shift+[.
+Move the current terminal window forward with ctrl+shift+f.
+In the terminal, move the current window backward with ctrl+shift+b.
+Move the current terminal window to the top with ctrl+shift+\` in the terminal.
+In the terminal, switch to the next tab with ctrl+shift+l.
+Switch to the previous tab in the terminal with ctrl+shift+h.
+In the terminal, create a new tab with the current working directory using ctrl+shift+t.
+Close the current tab in the terminal with ctrl+shift+q.
+Switch to the next layout in the terminal with ctrl+shift+l.
+Move the current tab forward in the terminal with ctrl+shift+.
+Move the current tab backward in the terminal with ctrl+shift+,
+Increase font size in the terminal with ctrl+shift+up.
+Decrease font size in the terminal with ctrl+shift+down.
+In the terminal, restore default font size with ctrl+shift+backspace.
+
+In nvim you can toggle file explorer using Space + e
+In nvim you can toggle terminal using F7
+In nvim you can toggle symbols outline using Space + lS
+In nvim you can close the current buffer using Space + c
+In nvim you can comment on one or multiple lines using Space + /
+In nvim you can see line diagnostics using g + l
+In nvim you can hover over a document using Shift + k
+In nvim you can open rename prompt using Space + lr
+In nvim you can go to the definition using g + d
+In nvim you can use code actions using Space + la
+In nvim you can use the debugger by pressing Space + D to see the available bindings and options
+In nvim you can find files using Space + ff
+In nvim you can grep files using Space + fw
+In nvim you can get git status using Space + gt
+In nvim you can find old files using Space + fo
+In nvim you can use the which key plugin to get a menu of some helpful key bindings by pressing Space
+In nvim you can switch to the left buffer by pressing [b
+In nvim you can switch to the right buffer by pressing ]b
+In nvim you can switch to the left window by pressing Ctrl + h
+In nvim you can switch to the right window by pressing Ctrl + l
+In nvim you can switch to the top window by pressing Ctrl + k
+In nvim you can switch to the bottom window by pressing Ctrl + j
+In nvim you can resize buffer to the left by pressing Ctrl + left key
+In nvim you can resize buffer to the right by pressing Ctrl + right key
+In nvim you can resize buffer to the top by pressing Ctrl + up key
+In nvim you can resize buffer to the bottom by pressing Ctrl + down key

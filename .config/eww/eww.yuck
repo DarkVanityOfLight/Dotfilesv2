@@ -1,0 +1,18 @@
+(include "./System-Menu/eww.yuck")
+(include "./Misc/eww.yuck")
+(include "./Main/eww.yuck")
+
+(defwidget closer []
+    (eventbox :onclick "eww close-all"))
+  
+(defwindow background-closer0
+  :monitor 0
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  (closer))
+
+(defwindow background-closer1
+  :monitor 1
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  (closer))

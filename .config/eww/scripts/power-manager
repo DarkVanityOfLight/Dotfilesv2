@@ -1,0 +1,88 @@
+#!/bin/bash
+
+fg=cdd6f4
+wrong=f38ba8
+highlight=cba6f7
+date=74c7ec
+verify=a6e3a1
+
+lock(){
+    i3lock \
+        --image=$HOME/.config/lockscreen/lockscreen_image.png \
+        --force-clock \
+        -e \
+        --indicator \
+        --radius=20 \
+        --ring-width=40 \
+        --inside-color=$fg \
+        --ring-color=$fg \
+        --insidever-color=$verify \
+        --ringver-color=$verify \
+        --insidewrong-color=$wrong \
+        --ringwrong-color=$wrong \
+        --line-uses-inside \
+        --keyhl-color=$verify \
+        --separator-color=$verify \
+        --bshl-color=$verify \
+        --time-str="%H:%M"\
+        --time-size=140 \
+        --date-str="%a, %d %b" \
+        --date-size=45 \
+        --verif-text="verifying password..." \
+        --wrong-text="wrong password!" \
+        --noinput-text="" \
+        --greeter-text="type the password to unlock" \
+        --ind-pos="300:610" \
+        --time-font="Fira Code:style=bold" \
+        --date-font="Fira Code" --verif-font="Fira Code" \
+        --greeter-font="Fira Code" \
+        --wrong-font="Fira Code" \
+        --verif-size=23 \
+        --greeter-size=23 \
+        --wrong-size=23 \
+        --time-pos="300:390" \
+        --date-pos="300:450" \
+        --greeter-pos="300:780" \
+        --wrong-pos="300:820" \
+        --verif-pos="300:655" \
+        --date-color=$date \
+        --time-color=$date \
+        --greeter-color=$fg \
+        --wrong-color=$wrong \
+        --verif-color=$verify \
+        --verif-pos="300:820" \
+        --pointer=default \
+        --refresh-rate=0
+}
+
+prelock(){
+    dunstctl set-paused true
+}
+
+postlock(){
+    dunstctl set-paused false
+}
+
+lockinit() {
+    if pgrep -u "$USER" "i3lock"; then
+        echo error "i3lock already running"
+        exit 1
+    fi
+    
+    echo "Running prelock..."
+    prelock
+
+    lock
+
+    echo "Running postlock..."
+    postlock
+}
+
+if [ $1 == "--lock" ]; then
+    lockinit
+fi
+
+if [ $1 == "--suspend" ]; then
+    lockinit && systemctl suspend
+fi
+

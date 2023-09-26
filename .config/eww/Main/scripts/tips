@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Use shuf to output a random line from the file
+random_line=$(shuf -n 1 "Main/scripts/tips.lst")
+echo "$random_line"

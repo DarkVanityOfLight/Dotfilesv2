@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+URL="https://api.waifu.im/search?is_nsfw=false&gif=false&width<=579&height<=330"
+fetch(){
+  RESPONSE=$(curl -s "$URL")
+  LINK=$(echo "$RESPONSE" | jq -r '.images[0].url')
+  wget -q -O "Main/images/waifu" $LINK
+  eww reload
+}
+
+if [ $1 == "--fetch-picture" ]; then
+  (fetch)&
+fi

@@ -1,0 +1,27 @@
+* {
+  all: unset;
+  transition: 200ms ease-out;
+}
+
+.powermenu {
+  background-color: $bg;
+  border-radius: 20px;
+}
+
+.greeting {
+  background-color: $bg-alt;
+  border-radius: 20px 20px 0px 0px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.main-buttons-box {
+  background-color: $gray-alt;
+  border-radius: 20px;
+  padding: 0px 25px 0px 25px;
+}
+
+.icon{
+  font-size: 100px;
+}

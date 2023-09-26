@@ -1,0 +1,58 @@
+;; variables
+(defpoll volume-status :interval "1s" "System-Menu/scripts/volume --status")
+(defpoll volume-icon :interval "1s" "System-Menu/scripts/volume --icon")
+(defpoll mic-icon :interval "1s" "System-Menu/scripts/microphone --icon")
+(defpoll mic-status :interval "1s" "System-Menu/scripts/microphone --status")
+(defpoll image :interval "100h" "System-Menu/scripts/details --image")
+(defpoll name :interval "100h" "System-Menu/scripts/details --name")
+
+;; for sliders
+(deflisten volume "System-Menu/scripts/sliders/volume-slider --value")
+(defpoll volume-slider-indicator :interval "0.5s" "System-Menu/scripts/sliders/volume-slider --icon")
+
+;; widget
+(defwidget system []
+  (box :orientation "v" :space-evenly "false" :class "main-system-box"
+
+    (box :orientation "h" :class "top-items-box" :space-evenly "false"
+      (box :class "menu-profile-items-box" :space-evenly "false" :spacing 15 :halign "start"
+        (box :style "background-image: url('${image}');" :class "menu-profile-image")
+        (label :class "menu-profile-name" :text name :valign "center"))
+      (box :class "right-items-box" :space-evenly "false" :spacing 10 :halign "end"
+      (button :tooltip "Open Color Picker" :class "color-picker" :onclick "System-Menu/scripts/launch picker" "󰈊")
+      (button :tooltip "Exit" :class "menu-exit" :onclick "System-Menu/scripts/launch exit" "󰍃")
+      (button :tooltip "Shutdown this PC." :class "menu-power" :onclick "shutdown now" "󰐥")))
+
+    (box :orientation "h" :class "second-row-system" :hexpand "false" :vexpand "false"
+      (box :orientation "h" :class "main-volume-box ${mic-icon == "󰍬" ? "main-volume-box-on" : "main-volume-box-off"}" :space-evenly "false"
+        (button :class "main-volume-button ${mic-icon == "󰍬" ? "main-volume-button-on" : "main-volume-button-off"}" :onclick "System-Menu/scripts/microphone --toggle" "${mic-icon}")
+        (box :class "volume-labels-box" :orientation "v" :space-evenly "false" :spacing 5
+          (button :halign "start" :class "volume-label-button ${mic-icon == "󰍬" ? "volume-label-button-on" : "volume-label-button-off"}" :onclick "System-Menu/scripts/microphone --toggle" "Microphone")
+          (button :halign "start" :class "volume-status-button ${mic-icon == "󰍬" ? "volume-status-button-on" : "volume-status-button-off"}" :onclick "System-Menu/scripts/micr --toggle" "${mic-status}"))
+        (button :class "" :hexpand "true" :onclick "System-Menu/scripts/microphone --toggle")))
+
+    (box :orientation "v" :class "sliders-system" :hexpand "false" :vexpand "false" :spacing 30
+      (box :orientation "h" :class "volume-slider-stuff" :space-evenly "false"
+        (button :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle" :class "volume-slider-icon" "${volume-slider-indicator}")
+        (scale :class "volume-slider"
+          :value {volume == "" ? 0 : volume}
+          :orientation "h"
+          :width 660
+          :max 100
+          :min 0
+          :marks true
+        :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"))
+        )
+
+
+    )
+)
+
+;; window
+(defwindow system-menu
+  :windowtype "normal"
+  :wm-ignore true
+  :monitor 1
+  :geometry (geometry :x 76 :width 300 :height 300 :y 48 :x 1204)
+  (system))
+

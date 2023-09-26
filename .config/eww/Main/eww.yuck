@@ -1,0 +1,188 @@
+;; variables
+(defpoll username :interval "100h" "whoami")
+(defpoll host :interval "100h" "Main/scripts/whoami --host")
+(defpoll spacing :interval "100h" "Main/scripts/whoami --spacing")
+(defpoll time :interval "1s" "date '+%I: %M'")
+(defpoll word-date :interval "1s" "date '+%A, %B'")
+(defpoll date :interval "1s" "date '+%d, %m, %Y'")
+(defpoll music-length :interval "1s" "Main/scripts/music-length")
+(defpoll music-title :interval "1s" "Main/scripts/music-title --status")
+(defpoll music-pp :interval "1s" "Main/scripts/music-title --icon")
+(defpoll music-artist :interval "1s" "Main/scripts/music-artist")
+(defpoll music-art :interval "1s" "Main/scripts/music-art")
+(defpoll music-volume :interval "1s" "Main/scripts/music-volume --value")
+(defpoll music-icon :interval "1s" "Main/scripts/music-volume --icon")
+(defpoll fetcher :interval "12h" "Main/scripts/quotes --fetch")
+(defpoll author :interval "12h" "Main/scripts/quotes --author")
+(defpoll quote :interval "12h" "Main/scripts/quotes --quote")
+(defpoll anime-picture :interval "12h" "Main/scripts/anime --fetch-picture")
+(defpoll weather-icon :interval "1h" "Main/scripts/weather --icon")
+(defpoll temperature :interval "1h" "Main/scripts/weather --temperature")
+(defpoll weather-description :interval "1h" "Main/scripts/weather --description")
+(defpoll uptime :interval "1m" "Main/scripts/uptime")
+(defpoll CPU_USAGE :interval "1s" `Main/scripts/system --cpu`)
+(defpoll MEM_USAGE :interval "1s" `Main/scripts/system --mem`)
+(defpoll GPU :interval "1s" `Main/scripts/system --gpu`)
+(defpoll STORAGE :interval "5s" `Main/scripts/system --storage`)
+(defpoll TIP :interval "1h" "Main/scripts/tips '/Main/scripts/tips.lst'")
+
+;; widgets
+(defwidget whoami [] 
+  (box :class "whoami-box" :vexpand true :hexpand false :orientation "v"
+    (box :class "profile-image-box" :vexpand false :hexpand "false"
+      (box :class "profile-image" :halign "center" :valign "center" :width 90 :height 90)
+      )
+    (box :class "text-box" :orientation "v" :hexpand true :space-evenly false
+      (label :class "hello" :xalign "0" :text "Hello,")
+      (label :class "username" :xalign "0.2" :text "${username}")
+      (label :class "hostname" :xalign "0.2" :text "@${host}")
+      )
+    )
+  )
+
+(defwidget clock [] 
+  (box :class "clock-box" :vexpand true :hexpand "true" :orientation "v"
+    (label :class "word-date" :text "${word-date}")
+    (label :class "time" :text "${time}")
+    (label :class "date" :text "${date}")
+    )
+  )
+
+(defwidget nowplaying [] 
+  (box :class "music-box" :orientation "h" :vexpand true :valign "center" :space-evenly false
+    (box :class "cover-box" :orientation "h" :halign "start" :height 130 :width 130 :style "background-image: url(\"${music-art}\");" )
+    (box :class "metadata-controll-box" :orientation "v" :halign "center" :hexpand true :valign "center" :space-evenly false
+      (label :class "song" :limit-width 22 :text "${music-title}")
+      (label :class "artist" :limit-width 22 :text "${music-artist}")
+      (box :class "controlls-box" :orientation "h" :space-evenly false :hexpand true :vexpand "true" :valign "center" :halign "center"
+        (box :class "music-button-box" :height 45 :width 45 (button :class "music-button back" :onclick "playerctl -p spotify previous" ""))
+        (box :class "music-button-box" :height 45 :width 45 (button :class "music-button pp" :onclick "playerctl -p spotify play-pause" "${music-pp}"))
+        (box :class "music-button-box" :height 45 :width 45 (button :class "music-button forward" :onclick "playerctl -p spotify next" ""))
+        )
+      )
+    (box :class "sound-slider-box" :orientation "v" :space-evenly false :tooltip "${music-volume}%"
+      (scale :class "sound-slider" :orientation "v" :flipped true :min 0 :max 100 :value music-volume :vexpand "true" :onchange "Main/scripts/music-volume --set {}" :width 10 :active "true")
+      (label :text "${music-icon}")
+      )
+    )
+  )
+
+(defwidget quote []
+  (box :class "quote-box" :orientation "v" :vexpand true :space-evenly false
+    (box :class "quote-text-box" :halign "center"
+      (label :class "quote-sign" :text "")
+    )
+
+    (box :class "" :valign "center" :orientation "v" :vexpand true
+      (label :class "quote-text" :text "${quote}" :wrap true)
+      (label :class "quote-author" :text "~ ${author}")
+      )
+    )
+  ) 
+
+(defwidget anime [] 
+  (eventbox :class "anime-picture" :vexpand true :onclick "Main/scripts/anime --fetch-picture" "")
+  )
+
+(defwidget weather []
+  (box :class "weather-box" :orientation "v" :vexpand "true" :valign "start"
+    (box :class "weather-icon-box" :orientation "h"
+      (label :class "text weather-icon" :text "${weather-icon}" :xalign "0.4")
+      )
+    (box :class "weather-text-box" :orientation "v"
+      (label :class "text temperature" :text "${temperature}C")
+      (label :class "text weather-description" :text "${weather-description}" :wrap true :width 200)
+      )
+    )
+  )
+
+(defwidget uptime []
+  (box :class "uptime-box" :orientation "v" :vexpand "true" :valign "start"
+   (label :class "uptime-icon" :text "" :xalign "0.35") 
+   (label :class "text uptime-text" :text "${uptime}")
+    )
+  )
+
+(defwidget stats []
+  (box :class "system-box" :vexpand true :hexpand "false"
+    (box :orientation "v" :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+      (box :class "system-bar cpu_bar" :orientation "h" :spacing 5 :space-evenly "false" :vexpand "false" :hexpand "false"
+        (label :class "iconcpu" :text "󰘚")
+        (scale :min 0 :max 100 :value CPU_USAGE :active "false")
+        (label :class "text-cpu" :text "${CPU_USAGE}%")
+        )
+      (box :class "system-bar mem_bar" :orientation "h" :spacing 5 :space-evenly "false" :vexpand "false" :hexpand "false"
+        (label :class "iconmem" :text "󰍛")
+        (scale :min 0 :max 100 :value MEM_USAGE :active "false")
+        (label :class "text-ram" :text "${MEM_USAGE}%")
+        )
+      (box :class "system-bar gpu_bar" :orientation "h" :spacing 5 :space-evenly "false" :vexpand "false" :hexpand "false"
+        (label :class "icongpu" :text "󰆦")
+        (scale :min 0 :max 100 :value GPU :active "false")
+        (label :class "text-gpu" :text "${GPU}%"))
+      (box :class "system-bar stor_bar" :orientation "h" :spacing 5 :space-evenly "false" :vexpand "false" :hexpand "false"
+        (label :class "iconstor" :text "󰋊")
+        (scale :min 0 :max 100 :value STORAGE :active "false")
+        (label :class "text-disk" :text "${STORAGE}%")
+        )
+      )
+    )
+  )
+
+(defwidget power []
+  (box :orientation "h" :space-evenly true :class "power"
+    (button :class "shutdown" :tooltip "Shutdown" :onclick  "shutdown -h now" "󰐥")
+    (button :class "reboot" :tooltip "Reboot" :onclick  "reboot" "󰜉")
+    (button :class "lock" :tooltip "Lock" :onclick "scripts/power-manger --lock" "󰌾")
+    (button :class "suspend" :tooltip "suspend" :onclick "power-manger --suspend" "󰤄")
+    )
+  )
+
+(defwidget tips []
+  (box :orientation "v" :space-evenly false :class "tip-container" :halign "start"
+    (label :class "tip-header" :text "Tip" :xalign "0")
+    (label :class "tip-text" :text "${TIP}" :wrap true :xalign "0")
+    )
+  )
+
+(defwidget main []
+  (box :class "main-window" :space-evenly false :orientation "v"
+
+    (box :class "top-row" :orientation "h" :space-evenly false :height 205
+      (box :class "item whoami" :orientation "v" :space-evenly false :width 180 (whoami))
+      (box :class "item clock" :orientation "v" :space-evenly false :width 444 (clock))
+      (box :class "item nowplaying" :orientation "v" :space-evenly false :width 470 (nowplaying))
+      )
+
+    (box :class "mid-row" :orientation "h" :space-evenly false :height 330
+      (box :class "item quote" :orientation "v" :space-evenly false :hexpand "false" :vexpand "false" :width 257 (quote))
+      (box :class "item anime" :orientation "v" :space-evenly false :hexpand "false" :vexpand "false" :width 579 (anime))
+      (box :class "item weather" :orientation "v" :space-evenly false :hexpand "false" :vexpand "false" :width 258 (weather))
+      )
+
+    (box :class "bottom-row" :orientation "h" :space-evenly false :height 209
+      (box :class "item tip" :orientation "v" :space-evenly false :hexpand "false" :vexpand "false" :width 430 (tips))
+      (box :class "item uptime" :orientation "v" :space-evenly false :hexpand "false" :vexpand "false" :width 175 (uptime))
+      (box :class "item system" :orientation "v" :space-evenly false :hexpand "false" :vexpand "false" :width 175 (stats))
+      (box :class "power-kys" :orientation "v" :space-evenly false
+        (box :class "item kys-container" :orientation "v" :height 55
+          (label :class "text kys-text" :text "Honestly just kys!")
+          )
+        (box :class "item power-container" :orientation "v" :space-evenly true :hexpand "false" :vexpand "false" :width 286 :vexpand true
+          (power)
+          )
+        )
+      )
+    )
+  )
+
+
+;; windows
+(defwindow main
+  :windowtype "normal"
+  :wm-ignore true
+  :monitor 1
+  :geometry (geometry :x 76 :width 1150 :height 800 :y 90 :x 365)
+  (main)
+  )
+

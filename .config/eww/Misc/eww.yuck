@@ -1,0 +1,25 @@
+;;variables
+(defpoll greeting :interval "10h" "Misc/scripts/quote")
+
+;;widgets
+(defwidget powermenu[]
+  (box :class "main-box" :orientation "v" :space-evenly false
+    (label :class "greeting" :text greeting :space-evenly "false" :wrap true)
+    (box :class "main-buttons-box" :orientation "h" :halign "fill" :spacing 30
+      (button :tooltip "Shutdown your PC." :class "icon shutdown" :onclick "shutdown now" "󰐥")
+      (button :tooltip "Reboot your PC." :class "icon reboot" :onclick "reboot" "󰜉")
+      (button :tooltip "Lock" :class "icon lock" :onclick "scripts/power-manager --lock" "󰌾")
+      (button :tooltip "Suspend" :class "icon suspend" :onclick "scripts/power-manager --suspend" "󰤄")
+      )
+    )
+  )
+
+    
+;;windows
+(defwindow powermenu
+  :windowtype "normal"
+  :wm-ignore true
+  :monitor 0
+  :geometry (geometry :anchor "center" :width "400px" :height "100px")
+  (powermenu))
+

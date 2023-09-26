@@ -1,0 +1,168 @@
+#!/bin/bash
+
+# Replace lat and long with yours
+URL="https://api.open-meteo.com/v1/forecast?latitude=49.4914&longitude=7.8547&current_weather=true"
+DATA=$(curl -s "$URL")
+
+if [ $1 == "--temperature" ]; then
+  TEMPERATURE=$(echo "$DATA" | jq -r '.current_weather.temperature')
+  echo "$TEMPERATURE"
+fi
+
+if [ "$1" == "--icon" ]; then
+  CODE=$(jq -r '.current_weather.weathercode' <<< "$DATA")
+  IS_DAY=$(jq -r '.current_weather.is_day' <<< "$DATA")
+
+  case "$IS_DAY" in
+    "1")
+      case "$CODE" in
+        0)
+          DESCRIPTION=""
+          ;;
+        1|2|3)
+          DESCRIPTION=""
+          ;;
+        45|48)
+          DESCRIPTION=""
+          ;;
+        51|53|55)
+          DESCRIPTION=""
+          ;;
+        56|57)
+          DESCRIPTION=""
+          ;;
+        61|63|65)
+          DESCRIPTION=""
+          ;;
+        66|67)
+          DESCRIPTION="󰙿"
+          ;;
+        71|73|75)
+          DESCRIPTION="󰼶"
+          ;;
+        77)
+          DESCRIPTION="󰖘"
+          ;;
+        80|81|82)
+          DESCRIPTION="󰼳"
+          ;;
+        85|86)
+          DESCRIPTION="󰼴"
+          ;;
+        95)
+          DESCRIPTION="󰖓"
+          ;;
+        96|99)
+          DESCRIPTION="󰙾"
+          ;;
+        *)
+          DESCRIPTION="Unknown weather code (day)"
+          ;;
+      esac
+      ;;
+    "0")
+      case "$CODE" in
+        0)
+          DESCRIPTION="󰖔"
+          ;;
+        1|2|3)
+          DESCRIPTION=""
+          ;;
+        45|48)
+          DESCRIPTION=""
+          ;;
+        51|53|55)
+          DESCRIPTION=""
+          ;;
+        56|57)
+          DESCRIPTION=""
+          ;;
+        61|63|65)
+          DESCRIPTION=""
+          ;;
+        66|67)
+          DESCRIPTION="󰙿"
+          ;;
+        71|73|75)
+          DESCRIPTION="󰼶"
+          ;;
+        77)
+          DESCRIPTION="󰖘"
+          ;;
+        80|81|82)
+          DESCRIPTION=""
+          ;;
+        85|86)
+          DESCRIPTION=""
+          ;;
+        95)
+          DESCRIPTION="󰖓"
+          ;;
+        96|99)
+          DESCRIPTION="󰙾"
+          ;;
+        *)
+          DESCRIPTION="Unknown weather code (day)"
+          ;;
+      esac
+      ;;
+  esac
+
+  echo "$DESCRIPTION"
+fi
+
+if [ "$1" == "--description" ]; then
+  CODE=$(jq -r '.current_weather.weathercode' <<< "$DATA")
+  IS_DAY=$(jq -r '.current_weather.is_day' <<< "$DATA")
+
+  case "$CODE" in
+    0)
+      DESCRIPTION="Clear sky"
+      ;;
+    1|2|3)
+      DESCRIPTION="Mainly clear, partly cloudy, and overcast"
+      ;;
+    45|48)
+      DESCRIPTION="Fog and depositing rime fog"
+      ;;
+    51|53|55)
+      DESCRIPTION="Drizzle: Light, moderate, and dense intensity"
+      ;;
+    56|57)
+      DESCRIPTION="Freezing Drizzle: Light and dense intensity"
+      ;;
+    61|63|65)
+      DESCRIPTION="Rain: Slight, moderate and heavy intensity"
+      ;;
+    66|67)
+      DESCRIPTION="Freezing Rain: Light and heavy intensity"
+      ;;
+    71|73|75)
+      DESCRIPTION="Snow fall: Slight, moderate, and heavy intensity"
+      ;;
+    77)
+      DESCRIPTION="Snow grains"
+      ;;
+    80|81|82)
+      DESCRIPTION="Rain showers: Slight, moderate, and violent"
+      ;;
+    85|86)
+      DESCRIPTION="Snow showers slight and heavy"
+      ;;
+    95)
+      DESCRIPTION="Thunderstorm: Slight"
+      ;;
+    96|99)
+      DESCRIPTION="Thunderstorm with slight and heavy hail"
+      ;;
+    *)
+      DESCRIPTION="Unknown weather code"
+      ;;
+  esac
+
+  if [ "$IS_DAY" == "false" ]; then
+    DESCRIPTION="$DESCRIPTION (night)"
+  fi
+
+  echo "$DESCRIPTION"
+fi

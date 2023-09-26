@@ -1,0 +1,29 @@
+#!/bin/bash
+fetch() {
+  # List of tags separated by '|'
+  tags="Change|Character|Competition|Courage|Creativity|Education|Ethics|Failure|Faith|Famous-Quotes|Film|Freedom|Friendship|Future|Generosity|Genius|Gratitude|Happiness|Health|History|Honor|Humor|Humorous|Imagination|Inspirational|Knowledge|Leadership|Life|Literature|Love|Mathematics|Motivational|Nature|Opportunity|Pain|Perseverance|Philosophy|Politics|Power-Quotes|Proverb|Sadness|Science|Self|Self-Help|Social-Justice|Society|Spirituality|Sports|Stupidity|Success|Technology|Time|Tolerance|Truth|Virtue|War|Weakness|Wellness|Wisdom|Work"
+
+  # Make the API request
+  response=$(curl -s "https://api.quotable.io/random?tags=$tags")
+
+  # Extract and print the quote
+  quote=$(echo "$response" | jq -r '.content')
+  author=$(echo "$response" | jq -r '.author')
+
+  echo "$quote" > Main/tmp-quote.txt
+  echo "$author" >> Main/tmp-quote.txt
+}
+
+if [ $1 == "--fetch" ]; then
+  (fetch)&
+fi
+
+if [ $1 == "--author" ]; then
+  author=$(sed -n '2p' Main/tmp-quote.txt)
+  echo "$author"
+fi
+
+if [ $1 == "--quote" ]; then
+  quote=$(sed -n '1p' Main/tmp-quote.txt)
+  echo "$quote"
+fi
