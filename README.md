@@ -49,3 +49,9 @@ After that we need to install AstroNvim, for that we run
 To configure we just need to download our config from Github now and we are done.
 `git clone https://github.com/DarkVanityOfLight/astrovim-config.git ~/.config/nvim/lua/user`
 
+## Fonts
+I only use the Fira Code Nerd font but if you want others go ahead.
+
+### Install
+You can either manually install or use the AUR
+`yay -S ttf-firacode-nerd`
