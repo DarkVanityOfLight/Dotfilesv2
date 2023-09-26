@@ -1,5 +1,9 @@
 # My Dotfiles
 
+These are my Dotfiles, they use the Catppuccin-Mocha Theme.
+I have a Dual Monitor Setup so you might want to adapt some settings if you
+are on one screen.
+
 ## I3 Gaps
 As window manager I am using i3 gaps. 
 
@@ -54,7 +58,7 @@ We need a nicer prompt so we install Starship.
 
 ## Config
 Copy `.config/starship.toml` to `~/.config/starship.toml`
-
+SIGUSR1 dunst
 ## Editor
 I am using Neo Vim with AstroNvim as Editor.
 
