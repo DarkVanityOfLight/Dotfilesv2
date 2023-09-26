@@ -35,3 +35,17 @@ Copy the config from:
 and set the theme using
 `kitty +kitten themes --reload-in=all Catpuccin-Mocha`
 
+
+## Editor
+I am using Neo Vim with AstroNvim as Editor.
+
+### Install
+`sudo pacman -S neovim`
+
+After that we need to install AstroNvim, for that we run
+`git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim`
+
+### Config 
+To configure we just need to download our config from Github now and we are done.
+`git clone https://github.com/DarkVanityOfLight/astrovim-config.git ~/.config/nvim/lua/user`
+
