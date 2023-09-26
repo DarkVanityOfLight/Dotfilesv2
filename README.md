@@ -35,6 +35,16 @@ Copy the config from:
 and set the theme using
 `kitty +kitten themes --reload-in=all Catpuccin-Mocha`
 
+## Fish
+As shell we are going to use fish.
+
+## Install
+`sudo pacman -S fish`
+
+## Config
+Copy the config from `.config/fish/*` to `~/.config/fish`
+and set the theme using
+`fish_config theme save "Catppuccin Mocha"`
 
 ## Editor
 I am using Neo Vim with AstroNvim as Editor.
