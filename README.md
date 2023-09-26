@@ -4,6 +4,8 @@ These are my Dotfiles, they use the Catppuccin-Mocha Theme.
 I have a Dual Monitor Setup so you might want to adapt some settings if you
 are on one screen.
 
+[](assets/screen1.png)
+
 ## I3 Gaps
 As window manager I am using i3 gaps. 
 
