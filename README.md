@@ -83,3 +83,15 @@ After that we can build Eww using
 ### Config
 Once again you can find and copy the config from
 `.config/eww/` to `~/.config/eww`
+
+## I3lock-color
+The powermenu lock widget uses I3lock-color, so we need that and configure
+our lockscreen background.
+
+## Install
+`yay -S i3lock-color`
+
+## Config
+We are using a wallpaper as background, so move your image to:
+`~/.config/lockscreen/lockscreen_image.png`
+make sure it has the right dimensions if you are on a dual monitor setup.
