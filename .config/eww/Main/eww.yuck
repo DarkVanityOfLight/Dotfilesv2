@@ -71,7 +71,6 @@
   (box :class "quote-box" :orientation "v" :vexpand true :space-evenly false
     (box :class "quote-text-box" :halign "center"
       (label :class "quote-sign" :text "")
-      // Basically a ghost label if we don't get an error this will never be displayed but without it eww doesn't call our fetcher
       (label :text "${fetcher}")
 
     )
